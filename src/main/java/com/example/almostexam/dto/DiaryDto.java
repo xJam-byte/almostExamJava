@@ -1,12 +1,6 @@
-package com.example.almostexam.entity;
+package com.example.almostexam.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "Recipe")
-public class Recipe {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class DiaryDto {
     private long id;
     private String title;
     private String description;
@@ -35,8 +29,4 @@ public class Recipe {
     public void setRating(int rating) {
         this.rating = rating;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
 }

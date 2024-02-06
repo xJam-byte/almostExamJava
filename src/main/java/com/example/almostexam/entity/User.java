@@ -13,24 +13,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String firstName;
-    private String lastName;
+    private String nickName;
 
-    public String getLastName() {
-        return lastName;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     private String email;
     private String password;
-
-
-
-
-
 
     public List<Role> getRoles() {
         return roles;
@@ -40,13 +34,6 @@ public class User {
         this.roles = roles;
     }
 
-    public String getName() {
-        return firstName;
-    }
-
-    public void setName(String name) {
-        this.firstName = name;
-    }
 
     public String getEmail() {
         return email;
@@ -65,7 +52,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "user")
-    private List<Recipe> recipes;
+    private List<Diary> diaries;
 
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

@@ -30,12 +30,7 @@ public class UserController {
         model.addAttribute("user", user);
         return "updateUser";
     }
-    @PostMapping("/delete")
-    public String showDeleteUser(Model model){
-        UserLoginDto user = new UserLoginDto();
-        model.addAttribute("deluser", user);
-        return "deleteUser";
-    }
+
 
 
 

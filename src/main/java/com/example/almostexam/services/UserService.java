@@ -28,7 +28,7 @@ public class UserService {
 
     public void saveUser(UserDto userDto) {
         User user = new User();
-        user.setName(userDto.getFirstName() + " " + userDto.getLastName());
+        user.setNickName(userDto.getNickName());
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         Role role = roleRepository.findByName("ROLE_ADMIN");
@@ -59,9 +59,7 @@ public class UserService {
 
     private UserDto mapToUserDto(User user) {
         UserDto userDto = new UserDto();
-        String[] str = user.getName().split(" ");
-        userDto.setFirstName(str[0]);
-        userDto.setLastName(str[1]);
+        userDto.setNickName(user.getNickName());
         userDto.setEmail(user.getEmail());
         return userDto;
     }
